@@ -34,7 +34,6 @@ export default function ConversionPage() {
     let apiUrl = process.env.NEXT_PUBLIC_API_KEY;
 
     if (!apiUrl) {
-      setError("API key is required");
       apiUrl = "https://convertio-fp4o.onrender.com";
     }
 
