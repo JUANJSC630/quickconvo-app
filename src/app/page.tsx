@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { url } from "inspector";
 
 export default function ConversionPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -30,17 +31,19 @@ export default function ConversionPage() {
     const formData = new FormData();
     formData.append("file", file);
 
-    console.log(process.env.NEXT_PUBLIC_API_URL);
+    let apiUrl = process.env.NEXT_PUBLIC_API_KEY;
+
+    if (!apiUrl) {
+      setError("API key is required");
+      apiUrl = "https://convertio-fp4o.onrender.com";
+    }
 
     try {
       // Enviar el archivo a la API de conversión
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/convert`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch(`${apiUrl}/convert`, {
+        method: "POST",
+        body: formData,
+      });
 
       if (!response.ok) {
         throw new Error("Failed to convert the file");
