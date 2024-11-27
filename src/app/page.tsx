@@ -32,7 +32,7 @@ export default function ConversionPage() {
 
     try {
       // Enviar el archivo a la API de conversión
-      const response = await fetch(process.env.NEXT_PUBLIC_CONVERTIO_API_URL + '/convert', {
+      const response = await fetch(process.env.API_URL + '/convert', {
         method: 'POST',
         body: formData,
       })
