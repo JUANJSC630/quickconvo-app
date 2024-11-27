@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { url } from "inspector";
 
 export default function ConversionPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -12,9 +11,21 @@ export default function ConversionPage() {
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
-      setFile(event.target.files[0]);
-      setError(null);
-      setPdfUrl(null);
+      const selectedFile = event.target.files[0];
+
+      const fileType = selectedFile.type;
+      if (
+        fileType !== "application/msword" &&
+        fileType !==
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      ) {
+        setError("Please upload a valid Word document (DOC or DOCX).");
+        setFile(null);
+      } else {
+        setFile(selectedFile);
+        setError(null);
+        setPdfUrl(null);
+      }
     }
   };
 
