@@ -50,7 +50,7 @@ export default function ConversionPage() {
 
     try {
       // Enviar el archivo a la API de conversión
-      const response = await fetch(`${apiUrl}/convert`, {
+      const response = await fetch(`${apiUrl}/word-to-pdf`, {
         method: "POST",
         body: formData,
       });
