@@ -44,8 +44,7 @@ export function ConversionCard({
             <Button
               className={`w-full ${bgColor} text-white transition-colors`}
             >
-              Go
-              <ArrowRightIcon className="h-4 w-4" />
+              <span className="font-semibold">Convert to {to}</span>
             </Button>
           </div>
         </Link>
