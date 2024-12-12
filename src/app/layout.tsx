@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gradient-to-br from-blue-200 via-white to-purple-200">
+      <body className="min-h-screen flex flex-col bg-gradient-to-br from-blue-200 via-white to-purple-200">
         <Navbar />
-        <div className="max-w-[1440px] mx-auto pt-12">{children}</div>
+        <div className="flex-grow max-w-[1440px] mx-auto pt-12">{children}</div>
+        <Footer />
       </body>
     </html>
   );
