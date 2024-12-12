@@ -12,7 +12,7 @@ export default function FileConverter() {
     <div className="container mx-auto p-6 space-y-10">
       <header className="text-center">
         <motion.h1
-          className="text-6xl sm:text-7xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 shadow-white"
+          className="text-[3rem] md:text-[5.5rem] font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 shadow-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
