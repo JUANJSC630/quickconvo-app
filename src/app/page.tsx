@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { ConversionCard } from "./components/convertion-card";
+import { ConversionCard } from "./components/ConvertionCard";
 import { conversions } from "@/utils/convertions.data";
-import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
-import { ArrowDownIcon, FileIcon } from "lucide-react";
+import { ArrowDownIcon } from "lucide-react";
 
 export default function FileConverter() {
   return (

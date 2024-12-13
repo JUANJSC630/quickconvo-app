@@ -6,5 +6,37 @@ export const conversions = [
     iconTo: "/images/pdf.png",
     bgColor: "bg-blue-500",
     url: "/word-to-pdf",
-  }
+  },
+  {
+    from: "Excel",
+    to: "PDF",
+    iconFrom: "/images/xls.png",
+    iconTo: "/images/pdf.png",
+    bgColor: "bg-green-500",
+    url: "/excel-to-pdf",
+  },
+  {
+    from: "PowerPoint",
+    to: "PDF",
+    iconFrom: "/images/ppt.png",
+    iconTo: "/images/pdf.png",
+    bgColor: "bg-orange-500",
+    url: "/powerpoint-to-pdf",
+  },
+  {
+    from: "JPG",
+    to: "PDF",
+    iconFrom: "/images/jpg.png",
+    iconTo: "/images/pdf.png",
+    bgColor: "bg-indigo-500",
+    url: "/jpg-to-pdf",
+  },
+  {
+    from: "TXT",
+    to: "PDF",
+    iconFrom: "/images/txt.png",
+    iconTo: "/images/pdf.png",
+    bgColor: "bg-gray-500",
+    url: "/txt-to-pdf",
+  },
 ];

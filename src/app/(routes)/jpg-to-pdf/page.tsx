@@ -14,7 +14,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-export default function WordToPdfPage() {
+export default function JpgToPdfPage() {
   const [file, setFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,11 +27,13 @@ export default function WordToPdfPage() {
 
       const fileType = selectedFile.type;
       if (
-        fileType !== "application/msword" &&
+        fileType !== "image/jpeg" &&
+        fileType !== "image/jpg" &&
+        fileType !== "image/png" &&
         fileType !==
-          "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       ) {
-        setError("Please upload a valid Word document (DOC or DOCX).");
+        setError("Please upload a valid Excel document (XLS or XLSX).");
         setFile(null);
       } else {
         setFile(selectedFile);
@@ -114,12 +116,12 @@ export default function WordToPdfPage() {
       </motion.div>
       <div className="container mx-auto p-6">
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-500"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-500"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Word to PDF Converter
+          JPG, PNG to PDF Converter
         </motion.h1>
         <motion.p
           className="text-xl text-center text-gray-700 max-w-3xl mx-auto mb-12"
@@ -127,7 +129,7 @@ export default function WordToPdfPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Transform your Word documents to PDF format quickly and easily.
+          Transform your JPG and PNG images to PDF format quickly and easily.
         </motion.p>
 
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
@@ -142,16 +144,14 @@ export default function WordToPdfPage() {
                   <p className="mb-2 text-sm text-gray-500">
                     <span className="font-semibold">Click to upload</span>
                   </p>
-                  <p className="text-xs text-gray-500">
-                    Word document (DOC or DOCX)
-                  </p>
+                  <p className="text-xs text-gray-500">JPG, PNG image</p>
                 </div>
                 <Input
                   id="dropzone-file"
                   type="file"
                   className="hidden"
                   onChange={handleFileChange}
-                  accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  accept=".jpg,.jpeg,.png,image/jpeg,image/jpg,image/png"
                 />
               </label>
             </div>
@@ -175,7 +175,7 @@ export default function WordToPdfPage() {
             <Button
               onClick={handleConvert}
               disabled={!file || isLoading}
-              className="w-full bg-gradient-to-r from-blue-400 to-cyan-500 hover:from-blue-500 hover:to-cyan-600 text-white"
+              className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white"
             >
               {isLoading ? "Converting..." : "Convert to PDF"}
             </Button>
@@ -216,7 +216,7 @@ export default function WordToPdfPage() {
                   <p className="text-green-500 mb-2">Conversion successful!</p>
                   <Button
                     asChild
-                    className="w-full bg-gradient-to-r from-cyan-600 to-blue-500 hover:from-cyan-700 hover:to-blue-600 text-white"
+                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-500 hover:from-purple-600 hover:to-indigo-600 text-white"
                   >
                     <a
                       href={pdfUrl}
